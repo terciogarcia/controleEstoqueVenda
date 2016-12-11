@@ -1,0 +1,338 @@
+/*
+ *= require font-awesome
+ */
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans-regular-webfont.ttf'),
+    	 url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/opensans-bold-webfont.ttf'),
+    	 url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans SemiBold';
+    src: url('../fonts/opensans-semibold-webfont.ttf'),
+    	 url('../fonts/opensans-semibold-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "Open Sans";
+	background: #f1f2f7;
+}
+
+*{
+	outline: none !important;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+.clearAll{
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+/*application layout*/
+
+header#header{
+    background: #fff;
+    width: 100%;
+    float: left;
+    position: relative;
+    z-index: 100;
+    margin-bottom: 15px;
+}
+
+#logo{
+    background: #fff;
+    float: left;
+}
+
+#logo img{
+    width: 130px;
+    display: block;
+    margin: 5px 57px;
+}
+
+/*menu*/
+#menuLateral{
+    background: #262f34;
+    width: 245px;
+    height: 100%;
+    position: fixed;
+    z-index: 99;
+    padding-top: 103.94px;
+    left: 0;
+}
+
+#menuLateral a{
+    color: #fff;
+    display: block;
+    background: #262f34;
+    padding: 19px 30px;
+    cursor: pointer;
+    font-size: 15px;
+    border-bottom: solid 1px #959595;
+    transition: 0.4s;
+}
+
+#menuLateral ul,
+#menuLateral li{
+    padding: 0;
+    margin:  0;
+    list-style: none;
+}
+
+#menuLateral a:hover,
+#menuLateral a.active{
+    background: #444e54;
+    color: #63d4ff;
+}
+
+#menuLateral a .fa.fa-angle-left{
+    position: absolute;
+    right: 22px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#menuLateral a.active .fa.fa-angle-left{
+    -webkit-transform: rotate(180deg);
+       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+         -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+#menuLateral a.opened .fa.fa-angle-left{
+    -webkit-transform: rotate(-90deg);
+       -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+         -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+}
+
+#menuLateral a .fa{
+    font-size: 17px;
+    margin-right: 7px;
+}
+
+#menuLateral li.first ul{
+    display: none;
+}
+
+#menuLateral li.first ul a{
+    background: #444e54;
+}
+
+/*padrão interno*/
+
+div#body{
+    background: #fff;
+    margin: 0px 15px 0px 260px;
+    clear: both;
+    border-radius: 3px;
+    color: #797979;
+}
+
+div#body input[type="text"],
+div#body select,
+div#body textarea{
+    color: #797979;
+}
+
+div#body > section{
+    padding: 15px;
+}
+
+div#body header{
+    background: #fafafa;
+    padding: 15px;
+    font-size: 20px;
+    font-family: 'Open Sans SemiBold';
+    border-bottom: solid 1px #eff2f7;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+#tableCustom{
+    width: 100%;
+    border-spacing: 0;
+    border-left: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    font-size: 15px;
+}
+
+#tableCustom td,
+#tableCustom th{
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+#tableCustom td a{
+    color: #797979;
+}
+
+#tableCustom td{
+    background: #f9f9f9;
+}
+
+#tableCustom td .excluir{
+    opacity: 0;
+    position: absolute;
+    width: 30px;
+    margin-left: -15px;
+    cursor: pointer;
+}
+
+#tableCustom tr:hover td{
+    background: #fff;
+}
+
+
+#tableCustom th{
+    font-family: 'Open Sans SemiBold';
+    font-weight: normal;
+    color: #333;
+}
+
+a#new{
+    float: left;
+    margin: 10px 0 25px;
+    background: url('../images/new.png') #2d7298 no-repeat 93%;
+    border: solid 1px #2d7298;
+    color: #fff;
+    font-size: 17px;
+    padding: 5px 30px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+a#new:hover{
+    background: url('../images/new.png') #285567 no-repeat 93%;
+}
+
+#notice{
+    width: 300px;
+    clear: both;
+    padding: 13px 10px 11px;
+    margin: 0 auto 30px;
+    border-radius: 6px;
+    text-align: center;
+    color: #268e3c;
+    border: solid 1px #268e3c;
+}
+
+#notice .fa{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#notice.error{
+    border: solid 1px #ea0505;
+    color: #ea0505;
+}
+/*form*/
+#formDiv{
+	overflow: hidden;
+}
+
+#formDiv form{
+	width: 500px;
+	margin: 20px auto 0;
+}
+
+#formDiv .formLine{
+	width: 100%;
+	margin: 0 0 10px;
+}
+
+#formDiv .formLine label{
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    margin-right:  5px;
+}
+
+#formDiv .formLine input[type="text"],
+#formDiv .formLine select,
+#formDiv .formLine textarea{
+    border: solid 1px #aaa;
+    padding: 7px 10px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+#formDiv #submit{
+    float: right;
+    margin-right: 29px;
+    margin-top: 20px;
+    background: #268e3c;
+    border: solid 1px #268e3c;
+    color: #fff;
+    padding: 6px 15px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#formDiv #submit:hover{
+    background: #1c6d2d;
+}
+
+#formDiv #voltar{
+    float: left;
+    margin-left: 29px;
+    margin-top: 20px;
+    background: #262f34;
+    border: solid 1px #262f34;
+    color: #fff;
+    padding: 6px 15px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#formDiv #voltar:hover{
+    background: #111517;
+}
+
+span.error{
+    color: #ea0505;
+    display: block;
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+#formDiv .formLine label.error{
+    color: #ea0505;
+    width: 100%;
+    text-align: left;
+    padding-left: 160px;
+}

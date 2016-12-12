@@ -1,6 +1,4 @@
 <?php
-	//require('../dbconnect.php');
-
 	$content = ob_get_contents();
 
 	include("../index.php");
@@ -47,7 +45,7 @@
 							echo "<td>".$row['descricao']."</td>";
 							echo "<td>".$row['preco_venda']."</td>";
 							echo '<td><a href="form.php?id='.$row['id'].'"> <i class="fa fa-edit"></i></a></td>';
-							echo '<td><a href="excluir.php?id='.$row['id'].'" class="excluir"> <i class="fa fa-trash"></i></a></td>';
+							echo '<td><a href="delete.php?id='.$row['id'].'" class="excluir"> <i class="fa fa-trash"></i></a></td>';
 						echo '</tr>';
 					}
 				}

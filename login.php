@@ -1,5 +1,41 @@
 <?php
-#require('dbconnect.php');
+require('dbconnect.php');
+$senhaIncorreta = false;
+
+if(isset($_POST['usuario'])){
+  $dados = $_POST['usuario'];
+  $query = $database->prepare("SELECT * from usuario u INNER JOIN gerente g ON g.id = u.id WHERE u.login=:login AND u.senha=:senha");
+  $query->bindValue(':login', $dados['login'], PDO::PARAM_STR);
+  $query->bindValue(':senha', $dados['senha'], PDO::PARAM_STR);
+
+  if($query->execute()){
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    if(empty($result)){
+      $query = $database->prepare("SELECT * from usuario u INNER JOIN cliente c ON c.id = g.id WHERE u.login=:login AND u.senha=:senha");
+      $query->bindValue(':login', $dados['login'], PDO::PARAM_STR);
+      $query->bindValue(':senha', $dados['senha'], PDO::PARAM_STR);
+      if($query->execute()){
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        if(!empty($result)){
+          session_start();
+          $_SESSION['user_id'] = $result ['id'];
+          $_SESSION['role'] = "gerente";
+          header("Location: index.php");
+          exit();
+        }
+      }
+      //SENHA INCORRETA
+      $senhaIncorreta = true;
+    }
+    else{
+      session_start();
+      $_SESSION['user_id'] = $result ['id'];
+      $_SESSION['role'] = "cliente";
+      header("Location: index.php");
+      exit();
+    }
+  }
+}
 
 ?>
 
@@ -66,22 +102,23 @@
 </style>
 
 <body>
-
   <div id="login">
     <h1>Controle de Estoque</h1>
 
-    <form action="redirect.php" method="POST">
+    <form action="" method="POST">
         <div>
-          <input type="text" placeholder="Email">
+          <input type="text" placeholder="Login" name="usuario[login]">
         </div>
 
         <div>
-          <input type="password" placeholder="Senha">
+          <input type="password" placeholder="Senha" name="usuario[senha]">
         </div>
 
         <input type="submit" value="Enviar">
     </form>
-    
+    <?php if($senhaIncorreta){?>
+      <div style="color: #f00">Erro: Login ou senha está incorreto.</div>
+    <?php } ?>
   </div>
 
 </body>

@@ -1,5 +1,13 @@
 <?php
-#require('dbconnect.php');
+require('dbconnect.php');
+
+session_start();
+
+if(!isset($_SESSION["user_id"])){
+  var_dump($_SESSION); 
+  header('location: /controleEstoqueVenda/login.php');
+  exit();
+}
 
 ?>
 
@@ -32,6 +40,7 @@
   <div id="logo">
     <img src="/controleEstoqueVenda/assets/images/UFJF-600-dpi-1024x740.jpg">
   </div>
+  <div><a href="/controleEstoqueVenda/logout.php">Logout</a></div>
 </header>
 
 <div id="menuLateral" class="active">
@@ -52,24 +61,24 @@
     </li>
     <!---->
     <li class="first">
-      <a>Outra coisa X <i class="fa fa-angle-left"></i></a>
+      <a>Fornecedor <i class="fa fa-angle-left"></i></a>
 
       <ul>
         <li>
-        	<a href="#"> <i class="fa fa-user"></i> subcoisa 1</a>
+          <a href="/controleEstoqueVenda/fornecedor/index.php"> <i class="fa fa-book"></i> Listagem</a>
         </li>
         <li>
-        	<a href="#"> <i class="fa fa-user"></i> subcoisa2</a>
+          <a href="/controleEstoqueVenda/fornecedor/form.php"> <i class="fa fa-file-o"></i> Novo fornecedor</a>
         </li>
       </ul>
-      
+    
     </li>
 
   </ul>
 </div>
 
 <?php
-	echo $content;
+	//echo $content;
 ?>
 
 </body>

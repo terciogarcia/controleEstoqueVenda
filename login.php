@@ -11,7 +11,7 @@ if(isset($_POST['usuario'])){
   if($query->execute()){
     $result = $query->fetch(PDO::FETCH_ASSOC);
     if(empty($result)){
-      $query = $database->prepare("SELECT * from usuario u INNER JOIN cliente c ON c.id = g.id WHERE u.login=:login AND u.senha=:senha");
+      $query = $database->prepare("SELECT * from usuario u INNER JOIN cliente c ON c.id = u.id WHERE u.login=:login AND u.senha=:senha");
       $query->bindValue(':login', $dados['login'], PDO::PARAM_STR);
       $query->bindValue(':senha', $dados['senha'], PDO::PARAM_STR);
       if($query->execute()){
@@ -23,9 +23,9 @@ if(isset($_POST['usuario'])){
           header("Location: index.php");
           exit();
         }
+        //SENHA INCORRETA
+        $senhaIncorreta = true;
       }
-      //SENHA INCORRETA
-      $senhaIncorreta = true;
     }
     else{
       session_start();

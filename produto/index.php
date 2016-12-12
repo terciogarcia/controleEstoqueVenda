@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	$(function(){
 		$('.excluir').click(function(e){
-			if(!confirm("Tem certeza que deseja excluir essa conta?")){
+			if(!confirm("Tem certeza que deseja excluir esse produto?")){
 				e.preventDefault();
 			}
 		})

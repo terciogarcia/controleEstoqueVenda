@@ -2,7 +2,6 @@
 require('../dbconnect.php');
 
 if(isset($_POST['produto'])){
-	$form = false;
 	$data = $_POST['produto'];
 	$query = $database->prepare("insert into produto(nome, descricao, preco_venda) values(:nome, :descricao, :preco_venda)");
 	foreach ($data as $key => $value) {

@@ -9,8 +9,8 @@ if(isset($_POST['produto'])){
 	    $query->bindValue(':'.$key, $value, PDO::PARAM_STR);
 	}
 	if($query->execute()){
-		echo "Produto inserido que alegria";
-		echo '<br><a href="index.php">Voltar</a>';
+		header("Location: index.php?msg=create");
+		die();
 	}	
 	else{
 		echo print_r($query->errorInfo());

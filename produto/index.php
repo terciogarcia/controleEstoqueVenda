@@ -27,7 +27,21 @@
 
 		<?php 
 			if(isset($_GET['msg'])){
-				echo '<div id="notice">'.$_GET['msg'].'<i class="fa fa-check"></i></div>';
+				$msg;
+				switch ($_GET['msg']) {
+					case 'delete':
+						$msg = "Produto excluido com sucesso.";
+						break;
+					case 'create':
+						$msg = "Produto criado com sucesso.";
+						break;
+					case 'update':
+						$msg = "Produto atualizado com sucesso.";
+						break;
+					default:
+						break;
+				}
+				echo '<div id="notice">'.$msg.'<i class="fa fa-check"></i></div>';
 			}
 		?>
 
@@ -53,7 +67,7 @@
 							echo "<td>".$row['descricao']."</td>";
 							echo "<td>".$row['preco_venda']."</td>";
 							echo '<td><a href="form.php?id='.$row['id'].'"> <i class="fa fa-edit"></i></a></td>';
-							echo '<td><i class="fa fa-trash"></i><a href="excluir.php?id='.$row['id'].'" class="excluir"> </a></td>';
+							echo '<td><i class="fa fa-trash"></i><a href="delete.php?id='.$row['id'].'" class="excluir"> </a></td>';
 						echo '</tr>';
 					}
 				}

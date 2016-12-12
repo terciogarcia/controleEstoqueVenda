@@ -9,8 +9,8 @@ if(isset($_POST['produto'])){
 	    $query->bindValue(':'.$key, $value, PDO::PARAM_STR);
 	}
 	if($query->execute()){
-		echo "Produto atualizado que alegria";
-		echo '<br><a href="index.php">Voltar</a>';
+		header("Location: index.php?msg=update");
+		die();
 	}	
 	else{
 		echo print_r($query->errorInfo());

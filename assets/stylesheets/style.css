@@ -145,6 +145,23 @@ header#header{
     background: #444e54;
 }
 
+#logout{
+    float: right;
+    border: solid 1px #dddddd;
+    background: #fff;
+    color: #797979;
+    margin: 37px 15px 0 0;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: 0.4s;
+}
+
+#logout:hover{
+    background: #262f34;
+    color: #fff;
+}
+
 /*padrão interno*/
 
 div#body{

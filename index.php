@@ -42,7 +42,7 @@ if(!isset($_SESSION["user_id"])){
   <div id="logo">
     <img src="/controleEstoqueVenda/assets/images/UFJF-600-dpi-1024x740.jpg">
   </div>
-  <div><a href="/controleEstoqueVenda/logout.php">Logout</a></div>
+  <a href="/controleEstoqueVenda/logout.php" id="logout">Logout</a>
 </header>
 
 <div id="menuLateral" class="active">

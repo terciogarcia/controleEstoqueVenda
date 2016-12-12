@@ -17,10 +17,18 @@
 
 <script type="text/javascript">
 	$(function(){
-		$('input[name="produto[preco_venda]').keyup(function(){
-			if (/\D/g.test(this.value)){
-				this.value = this.value.replace(/\D/g, '');
-		  	}
+		$('input[name="produto[preco_venda]').keyup(function(e){
+
+			valor = $(this).val().replace(',', '.')
+
+			if(!(!isNaN(parseFloat(valor)) && isFinite(valor)))
+		    {
+		       $(this).val('');
+		    }
+		    else{
+		    	$(this).val(valor);
+		    }
+
 		})
 	})
 </script>

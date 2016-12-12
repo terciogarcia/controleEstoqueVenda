@@ -24,6 +24,11 @@
 
 		<a href="form.php" id="new">Novo produto</a>
 
+		<?php 
+			if(isset($_GET['msg'])){
+				echo '<div id="notice">'.$_GET['msg'].'<i class="fa fa-check"></i></div>';
+			}
+		?>
 
 		<table id="tableCustom">
 			<thead>

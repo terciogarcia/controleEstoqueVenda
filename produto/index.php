@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	$(function(){
 		$('.excluir').click(function(e){
-			if(!confirm("Tem certeza que deseja excluir essa conta?")){
+			if(!confirm("Tem certeza que deseja excluir esse produto?")){
 				e.preventDefault();
 			}
 		})
@@ -31,17 +31,19 @@
 				switch ($_GET['msg']) {
 					case 'delete':
 						$msg = "Produto excluido com sucesso.";
+						echo '<div id="notice" class="error">'.$msg.'<i class="fa fa-times"></i></div>';
 						break;
 					case 'create':
 						$msg = "Produto criado com sucesso.";
+						echo '<div id="notice">'.$msg.'<i class="fa fa-check"></i></div>';
 						break;
 					case 'update':
 						$msg = "Produto atualizado com sucesso.";
+						echo '<div id="notice">'.$msg.'<i class="fa fa-check"></i></div>';
 						break;
 					default:
 						break;
 				}
-				echo '<div id="notice">'.$msg.'<i class="fa fa-check"></i></div>';
 			}
 		?>
 

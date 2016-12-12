@@ -1,7 +1,4 @@
 <?php
-
-	require('../dbconnect.php');
-
 	$content = ob_get_contents();
 
 	include("../index.php");

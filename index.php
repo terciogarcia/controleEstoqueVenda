@@ -18,9 +18,11 @@ if(!isset($_SESSION["user_id"])){
 
   <link rel="stylesheet" type="text/css" href="/controleEstoqueVenda/assets/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/controleEstoqueVenda/assets/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="/controleEstoqueVenda/assets/stylesheets/select2.min.css">
 
   <script type="text/javascript" src="/controleEstoqueVenda/assets/javascripts/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="/controleEstoqueVenda/assets/javascripts/jquery.masked.input.min.js"></script>
+  <script type="text/javascript" src="/controleEstoqueVenda/assets/javascripts/select2.min.js"></script>
 
 </head>
 
@@ -55,6 +57,16 @@ if(!isset($_SESSION["user_id"])){
         </li>
         <li>
         	<a href="/controleEstoqueVenda/produto/form.php"> <i class="fa fa-file-o"></i> Novo produto</a>
+        </li>
+        <li>
+          <a href="/controleEstoqueVenda/produto/compra.php"> <i class="fa fa-shopping-cart"></i> 
+          Registrar Compra
+          </a>
+        </li>
+        <li>
+          <a href="/controleEstoqueVenda/produto/historico_compras.php"> <i class="fa fa-history"></i> 
+          Histórico de Compras
+          </a>
         </li>
       </ul>
       

@@ -103,7 +103,7 @@ if(isset($_POST['usuario'])){
 
 <body>
   <div id="login">
-    <h1>Controle de Estoque</h1>
+    <h1>Controle de Estoque e Vendas</h1>
 
     <form action="" method="POST">
         <div>

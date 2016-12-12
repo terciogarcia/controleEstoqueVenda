@@ -57,7 +57,7 @@
 			<tbody>
 			<!--oddloop-->
 			<?php 
-				$query = $database->prepare("SELECT * from produto");
+				$query = $database->prepare("SELECT *, cast(preco_venda AS money) from produto");
 				if($query->execute()){
 					$result = $query->fetchAll(PDO::FETCH_ASSOC);
 					foreach ($result as $row) {

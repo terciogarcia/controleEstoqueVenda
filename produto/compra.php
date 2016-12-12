@@ -4,26 +4,57 @@
 	include("../index.php");
 
 	if(isset($_POST['produto_fornecedor'])){
+		$database->beginTransaction(); 
+
 		$data = $_POST['produto_fornecedor'];
-		$query = $database->prepare("insert into produto_fornecedor(produto_id, fornecedor_id, preco_compra, quantidade_compra) values(:produto_id, :fornecedor_id, :preco_compra, :quantidade_compra)");
+		$query = $database->prepare("INSERT INTO produto_fornecedor(produto_id, fornecedor_id, preco_compra, quantidade_compra) VALUES(:produto_id, :fornecedor_id, :preco_compra, :quantidade_compra)");
+
+		$query2 = $database->prepare("UPDATE produto SET quantidade_estoque = quantidade_estoque + :quantidade_compra WHERE id = :produto_id");
+    	$query2->bindValue(':quantidade_compra', $data['quantidade_compra'], PDO::PARAM_STR);
+    	$query2->bindValue(':produto_id', $data['produto_id'], PDO::PARAM_STR);
 
 		foreach ($data as $key => $value) {
 	    	$query->bindValue(':'.$key, $value, PDO::PARAM_STR);
 		}
-		if($query->execute()){
+		if($query->execute() && $query2->execute()){
+			$database->commit();
 			header("Location: historico_compras.php?msg=compra");
 			die();
 		}	
 		else{
+			$database->rollBack();
 			echo print_r($query->errorInfo());
 		}
 
 	}
 ?>
 
+
+
 <script type="text/javascript">
 	$(function(){
 		$('.select2').select2();
+
+		$('input[name="produto_fornecedor[preco_compra]').keyup(function(e){
+
+			valor = $(this).val().replace(',', '.')
+
+			if(!(!isNaN(parseFloat(valor)) && isFinite(valor)))
+		    {
+		       $(this).val('');
+		    }
+		    else{
+		    	$(this).val(valor);
+		    }
+		});
+
+		$('input[name="produto_fornecedor[quantidade_compra]').keyup(function(e){
+		  if (/\D/g.test(this.value))
+		  {
+		    // Filter non-digits from input value.
+		    this.value = this.value.replace(/\D/g, '');
+		  }
+		});
 	})
 </script>
 
@@ -75,7 +106,7 @@
 				</div>
 
 				<div class="formLine">
-					<a href="index.php" id="voltar"> Voltar </a>
+					<a href="historico_compras.php" id="voltar"> Voltar </a>
 
 					<input type="submit" value="Enviar" id="submit">
 

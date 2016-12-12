@@ -50,6 +50,7 @@
 					<th>Nome</th>
 					<th>Descrição</th>
 					<th>Preço</th>
+					<th>Quantidade em Estoque</th>
 					<th>Editar</th>
 					<th>Excluir</th>
 				</tr>
@@ -65,6 +66,7 @@
 							echo "<td>".$row['nome']."</td>";
 							echo "<td>".$row['descricao']."</td>";
 							echo "<td>".$row['preco_venda']."</td>";
+							echo "<td>".$row['quantidade_estoque']."</td>";
 							echo '<td><a href="form.php?id='.$row['id'].'"> <i class="fa fa-edit"></i></a></td>';
 							echo '<td><i class="fa fa-trash"></i><a href="delete.php?id='.$row['id'].'" class="excluir"> </a></td>';
 						echo '</tr>';

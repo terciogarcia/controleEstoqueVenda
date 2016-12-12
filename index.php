@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="/controleEstoqueVenda/assets/stylesheets/style.css">
 
   <script type="text/javascript" src="/controleEstoqueVenda/assets/javascripts/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="/controleEstoqueVenda/assets/javascripts/jquery.masked.input.min.js"></script>
 
 </head>
 

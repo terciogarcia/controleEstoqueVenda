@@ -15,6 +15,16 @@
 	}
 ?>
 
+<script type="text/javascript">
+	$(function(){
+		$('input[name="produto[preco_venda]').keyup(function(){
+			if (/\D/g.test(this.value)){
+				this.value = this.value.replace(/\D/g, '');
+		  	}
+		})
+	})
+</script>
+
 <div id="body">
 	<header>
 		<?= isset($_GET['id']) ? "Editar" : "Cadastrar" ?> Produto

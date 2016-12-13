@@ -4,7 +4,7 @@
 	include("../index.php");
 
 	if(isset($_GET['id'])){
-		$query = $database->prepare("SELECT * from produto where id=".$_GET['id']);
+		$query = $database->prepare("SELECT prod.*, cast(1.2*(SUM(pf.preco_compra * pf.quantidade_compra)/SUM(pf.quantidade_compra)) as money) AS preco_sugerido FROM produto AS prod INNER JOIN produto_fornecedor AS pf ON prod.id = pf.produto_id GROUP BY prod.id HAVING prod.id=".$_GET['id']);
 		if($query->execute()){
 			$result = $query->fetch(PDO::FETCH_ASSOC);
 			foreach ($result as $key => $value) {
@@ -60,6 +60,12 @@
 					<input type="text" name="produto[preco_venda]" value="<?= isset($preco_venda) ? $preco_venda : ''?>">
 				</div>
 
+				<?php if(isset($preco_sugerido)){ ?>
+					<div id="notice">
+						(Preço sugerido: <?=$preco_sugerido?>)
+					</div>
+				<?php } ?>
+
 				<div class="formLine">
 					<a href="index.php" id="voltar"> Voltar </a>
 
@@ -67,8 +73,6 @@
 
 				</div>
 
-				
-				
 			</form>
 		</div>
 	</section>

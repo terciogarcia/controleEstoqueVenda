@@ -49,7 +49,8 @@
 				<tr>
 					<th>Nome</th>
 					<th>Descrição</th>
-					<th>Preço</th>
+					<th>Preço sugerido</th>
+					<th>Preço praticado</th>
 					<th>Quantidade em Estoque</th>
 					<th>Editar</th>
 					<th>Excluir</th>
@@ -58,13 +59,14 @@
 			<tbody>
 			<!--oddloop-->
 			<?php 
-				$query = $database->prepare("SELECT *, cast(preco_venda AS money) from produto");
+				$query = $database->prepare("SELECT prod.*, cast(1.2*(SUM(pf.preco_compra * pf.quantidade_compra)/SUM(pf.quantidade_compra)) as money) AS preco_sugerido, cast(preco_venda AS money) from produto AS prod LEFT JOIN produto_fornecedor AS pf ON prod.id = pf.produto_id GROUP BY prod.id");
 				if($query->execute()){
 					$result = $query->fetchAll(PDO::FETCH_ASSOC);
 					foreach ($result as $row) {
 						echo '<tr>';
 							echo "<td>".$row['nome']."</td>";
 							echo "<td>".$row['descricao']."</td>";
+							echo "<td>". (empty($row['preco_sugerido']) ? '-' : $row['preco_sugerido']) ."</td>";
 							echo "<td>".$row['preco_venda']."</td>";
 							echo "<td>".$row['quantidade_estoque']."</td>";
 							echo '<td><a href="form.php?id='.$row['id'].'"> <i class="fa fa-edit"></i></a></td>';

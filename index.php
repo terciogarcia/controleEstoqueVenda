@@ -96,6 +96,9 @@ if(!isset($_SESSION["user_id"])){
         <li>
           <a href="/controleEstoqueVenda/pedido/carrinho.php"> <i class="fa fa-shopping-cart"></i> Carrinho</a>
         </li>
+        <li>
+          <a href="/controleEstoqueVenda/pedido/index.php"> <i class="fa fa-history"></i> Histórico de pedidos</a>
+        </li>
       </ul>
     </li>
     <?php } ?>

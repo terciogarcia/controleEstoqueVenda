@@ -305,7 +305,7 @@ a#new:hover{
     border-radius: 5px;
 }
 
-#formDiv #submit{
+#formDiv #submit, #formDiv #cancelar{
     float: right;
     margin-right: 29px;
     margin-top: 20px;
@@ -317,6 +317,11 @@ a#new:hover{
     border-radius: 6px;
     cursor: pointer;
     transition: 0.4s;
+}
+
+#formDiv #cancelar{
+   background: #FF5247;
+   border: solid 1px #CC0000;
 }
 
 #formDiv #submit:hover{

@@ -30,18 +30,20 @@
 				<tr>
 					<th>Data</th>
 					<th>Valor Total</th>
+					<th>Gerar nota fiscal</th>
 				</tr>
 			</thead>
 			<tbody>
 			<!--oddloop-->
 			<?php 
-				$query = $database->prepare("SELECT to_char(data_venda, 'DD/MM/YYYY') as data_venda , cast(valor_total as money) FROM pedido WHERE status='concluido' AND cliente_id=".$_SESSION['user_id']." ORDER BY data_venda, valor_total DESC");
+				$query = $database->prepare("SELECT id, to_char(data_venda, 'DD/MM/YYYY') as data_venda , cast(valor_total as money) FROM pedido WHERE status='concluido' AND cliente_id=".$_SESSION['user_id']." ORDER BY data_venda, valor_total DESC");
 				if($query->execute()){
 					$result = $query->fetchAll(PDO::FETCH_ASSOC);
 					foreach ($result as $row) {
 						echo '<tr>';
 							echo "<td>".$row['data_venda']."</td>";
 							echo "<td>".$row['valor_total']."</td>";
+							echo "<td><a href='nota_fiscal.php?id=".$row['id']."'><i class='fa fa-money'></i></a></td>";
 						echo '</tr>';
 					}
 				}

@@ -101,6 +101,7 @@ if($query->execute()){
 		$.ajax({
 		  url: "atualizar_produto.php",
 		  method: "GET",
+		  async: false,
 		  data: { 
 		  		'id_pedido' : $('input[name="pedido_id"]').val(), 
 		  		'id_produto': id_produto,

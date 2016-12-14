@@ -15,7 +15,7 @@
 		$user_id = $_SESSION['user_id'];
 
 		$query = $database->prepare("
-			SELECT prod.nome as nome, ped.data_venda as data, ped.valor_total as preco, ped.status as status FROM produto prod 
+			SELECT prod.nome as nome, ped.data_venda as data, ped.valor_total as preco, ip.quantidade as quantidade FROM produto prod 
 				JOIN item_pedido ip ON ip.produto_id = prod.id 
 				JOIN pedido ped ON ped.id = ip.pedido_id
 			WHERE ped.cliente_id = ".$user_id." AND ped.status = 'concluido' AND Extract(month from ped.data_venda) = ".$mes."
@@ -93,7 +93,7 @@
 						echo "<th>Nome</th><th>Descrição</th><th>Preço de venda</th><th>Quantidade em estoque</th>";
 					}
 					else{
-						echo "<th>Produto</th><th>Data de venda</th><th>Valor</th><th>Status</th>";
+						echo "<th>Produto</th><th>Data de venda</th><th>Valor</th><th>Quantidade</th>";
 					}
 					?>
 				</tr>
@@ -118,7 +118,7 @@
 								echo "<td>".$row['nome']."</td>";
 								echo "<td>".(new DateTime($row['data']))->format('d/m/Y')."</td>";
 								echo "<td>".$row['preco']."</td>";
-								echo "<td>".$row['status']."</td>";
+								echo "<td>".$row['quantidade']."</td>";
 							echo '</tr>';
 						}
 					}

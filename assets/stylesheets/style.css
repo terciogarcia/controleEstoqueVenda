@@ -78,7 +78,7 @@ header#header{
     background: #262f34;
     width: 245px;
     height: 100%;
-    position: fixed;
+    position: absolute;
     z-index: 99;
     padding-top: 103.94px;
     left: 0;

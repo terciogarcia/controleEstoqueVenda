@@ -13,7 +13,7 @@
 
 		$mes = isset($_GET['mes']) ? $_GET['mes'] : 1;
 		$user_id = $_SESSION['user_id'];
-//where prod.id in(SELECT id from pedido where cliente_id = ".$user_id." AND status = 'concluido'")
+
 		$query = $database->prepare("
 			SELECT prod.nome as nome, ped.data_venda as data, ped.valor_total as preco, ped.status as status FROM produto prod 
 				JOIN item_pedido ip ON ip.produto_id = prod.id 

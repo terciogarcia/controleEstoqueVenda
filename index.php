@@ -86,6 +86,8 @@ if(!isset($_SESSION["user_id"])){
     
     </li>
 
+    <li><a href="/controleEstoqueVenda/relatorio/">Relatorio</a></li>
+
   </ul>
 </div>
 

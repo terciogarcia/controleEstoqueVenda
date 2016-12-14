@@ -19,7 +19,7 @@ if(isset($_POST['usuario'])){
         if(!empty($result)){
           session_start();
           $_SESSION['user_id'] = $result ['id'];
-          $_SESSION['role'] = "gerente";
+          $_SESSION['role'] = "cliente";
           header("Location: index.php");
           exit();
         }
@@ -30,7 +30,7 @@ if(isset($_POST['usuario'])){
     else{
       session_start();
       $_SESSION['user_id'] = $result ['id'];
-      $_SESSION['role'] = "cliente";
+      $_SESSION['role'] = "gerente";
       header("Location: index.php");
       exit();
     }

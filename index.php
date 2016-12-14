@@ -46,7 +46,8 @@ if(!isset($_SESSION["user_id"])){
 
 <div id="menuLateral" class="active">
   <ul>
-    
+    <?php if($_SESSION['role'] == 'gerente'){ ?>
+
     <li class="first">
       <a>Produtos <i class="fa fa-angle-left"></i></a>
 
@@ -70,7 +71,7 @@ if(!isset($_SESSION["user_id"])){
       </ul>
       
     </li>
-    <!---->
+
     <li class="first">
       <a>Fornecedor <i class="fa fa-angle-left"></i></a>
 
@@ -84,10 +85,13 @@ if(!isset($_SESSION["user_id"])){
       </ul>
     
     </li>
+    <?php } ?>
 
     <li><a href="/controleEstoqueVenda/relatorio/">Relatorios</a></li>
 
-<<<<<<< HEAD
+    <?php if($_SESSION['role'] == 'cliente'){ ?>
+    <li class="first">
+      <a>Pedidos <i class="fa fa-angle-left"></i></a>
       <ul>
         <li>
           <a href="/controleEstoqueVenda/pedido/carrinho.php"> <i class="fa fa-shopping-cart"></i> Carrinho</a>
@@ -95,8 +99,6 @@ if(!isset($_SESSION["user_id"])){
       </ul>
     </li>
     <?php } ?>
-=======
->>>>>>> origin
   </ul>
 </div>
 

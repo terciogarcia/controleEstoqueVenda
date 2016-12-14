@@ -141,7 +141,7 @@ if($query->execute()){
 	</header>
 	<section>
 		<div id="formDiv">
-			<form action="finalizar" method="post">
+			<form action="finalizar.php" method="post">
 				<input type="hidden" name="pedido_id" value="<?=$id?>">
 				<div class="formLine">
 					<label>Adicionar produto</label>
@@ -213,8 +213,8 @@ if($query->execute()){
 				</table>
 
 				<div class="formLine">
-					<input type="submit" value="Concluir Pedido" value="concluir" name="finalizar" id="submit">
-					<input type="submit" value="Cancelar Pedido" value="cancelar" name="finalizar" id="cancelar">
+					<input type="submit" value="Concluir Pedido" name="finalizar" id="submit">
+					<input type="submit" value="Cancelar Pedido" name="finalizar" id="cancelar">
 				</div>
 
 			</form>

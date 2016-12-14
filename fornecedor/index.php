@@ -46,6 +46,10 @@
 						$msg = "Fornecedor atualizado com sucesso.";
 						echo '<div id="notice">'.$msg.'<i class="fa fa-check"></i></div>';
 						break;
+					case 'error':
+						$msg = "Não foi possível excluir o fornecedor pois existem produtos associados ao mesmo.";
+						echo '<div id="notice" class="error">'.$msg.'<i class="fa fa-warning"></i></div>';
+						break;
 					default:
 						break;
 				}

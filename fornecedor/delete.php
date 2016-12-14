@@ -11,8 +11,9 @@ if(isset($_GET['id'])){
 		die();
 	}	
 	else{
-		echo print_r($deleteE->errorInfo());
-		echo print_r($deleteF->errorInfo());
+		$database->rollback();
+		header("Location: index.php?msg=error");
+		die();
 	}
 }
 ?>

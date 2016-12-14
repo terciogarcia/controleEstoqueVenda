@@ -14,8 +14,14 @@
 
 		<?php 
 			if(isset($_GET['msg'])){
-				/*$msg = "Compra de produto registrada com sucesso.";
-				echo '<div id="notice">'.$msg.'<i class="fa fa-check"></i></div>';*/
+				if($_GET['msg'] == 'concluido'){
+					$msg = "Pedido concluido com sucesso.";
+					echo '<div id="notice">'.$msg.'<i class="fa fa-check"></i></div>';
+				}
+				if($_GET['msg'] == 'cancelado'){
+					$msg = "Pedido cancelado com sucesso.";
+					echo '<div id="notice" class="error">'.$msg.'<i class="fa fa-times"></i></div>';
+				}
 			}
 		?>
 
@@ -29,7 +35,7 @@
 			<tbody>
 			<!--oddloop-->
 			<?php 
-				$query = $database->prepare("SELECT to_char(data_venda, 'DD/MM/YYYY') as data_venda , cast(valor_total as money) FROM pedido WHERE status='concluido' AND cliente_id=".$_SESSION['user_id']." ORDER BY data_criacao DESC");
+				$query = $database->prepare("SELECT to_char(data_venda, 'DD/MM/YYYY') as data_venda , cast(valor_total as money) FROM pedido WHERE status='concluido' AND cliente_id=".$_SESSION['user_id']." ORDER BY data_venda, valor_total DESC");
 				if($query->execute()){
 					$result = $query->fetchAll(PDO::FETCH_ASSOC);
 					foreach ($result as $row) {

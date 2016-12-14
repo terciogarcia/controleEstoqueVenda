@@ -8,7 +8,6 @@ if(!isset($_SESSION["user_id"])){
   header('location: /controleEstoqueVenda/login.php');
   exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +92,7 @@ if(!isset($_SESSION["user_id"])){
 
       <ul>
         <li>
-          <a href="/controleEstoqueVenda/pedidos/carrinho.php"> <i class="fa fa-shopping-cart"></i> Carrinho</a>
+          <a href="/controleEstoqueVenda/pedido/carrinho.php"> <i class="fa fa-shopping-cart"></i> Carrinho</a>
         </li>
       </ul>
     </li>

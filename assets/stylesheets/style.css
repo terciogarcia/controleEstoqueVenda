@@ -337,6 +337,19 @@ a#new:hover{
     transition: 0.4s;
 }
 
+#addProduto{
+    margin-left: 29px;
+    margin-top: 20px;
+    background: #00A86B;
+    border: solid 1px #006B44;
+    color: #fff;
+    padding: 6px 15px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
 #formDiv #voltar:hover{
     background: #111517;
 }

@@ -33,5 +33,6 @@ if(isset($_POST['fornecedor']) && isset($_POST['endereco'])){
 			echo print_r($query->errorInfo());
 		}
 	}
+	$database->rollBack();
 }
 ?>

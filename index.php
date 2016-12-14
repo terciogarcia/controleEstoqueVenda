@@ -86,7 +86,7 @@ if(!isset($_SESSION["user_id"])){
     
     </li>
 
-    <li><a href="/controleEstoqueVenda/relatorio/">Relatorio</a></li>
+    <li><a href="/controleEstoqueVenda/">Relatorios</a></li>
 
   </ul>
 </div>

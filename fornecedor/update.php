@@ -2,6 +2,8 @@
 require('../dbconnect.php');
 
 if(isset($_POST['fornecedor'])){
+	$database->beginTransaction(); 
+
 	$fornecedor = $_POST['fornecedor'];
 	$endereco = $_POST['endereco'];
 
@@ -18,10 +20,12 @@ if(isset($_POST['fornecedor'])){
 	}
 
 	if($queryF->execute() && $queryE->execute()){
+		$database->commit();
 		header("Location: index.php?msg=update");
 		die();
 	}	
 	else{
+		$database->rollBack();
 		echo print_r($queryF->errorInfo());
 		echo print_r($queryE->errorInfo());
 	}

@@ -15,6 +15,7 @@ if(!isset($_SESSION["user_id"])){
 <html>
 <head>
   <title>Controle de estoque</title>
+  <meta charset="utf-8 "/>
 
   <link rel="stylesheet" type="text/css" href="/controleEstoqueVenda/assets/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/controleEstoqueVenda/assets/stylesheets/style.css">
@@ -47,7 +48,7 @@ if(!isset($_SESSION["user_id"])){
 
 <div id="menuLateral" class="active">
   <ul>
-    
+    <?php if($_SESSION['role'] == 'gerente'){?>
     <li class="first">
       <a>Produtos <i class="fa fa-angle-left"></i></a>
 
@@ -71,7 +72,7 @@ if(!isset($_SESSION["user_id"])){
       </ul>
       
     </li>
-    <!---->
+
     <li class="first">
       <a>Fornecedor <i class="fa fa-angle-left"></i></a>
 
@@ -83,9 +84,20 @@ if(!isset($_SESSION["user_id"])){
           <a href="/controleEstoqueVenda/fornecedor/form.php"> <i class="fa fa-file-o"></i> Novo fornecedor</a>
         </li>
       </ul>
-    
     </li>
+    <?php }
+    if($_SESSION['role'] == 'cliente'){?>
 
+    <li class="first">
+      <a>Pedidos <i class="fa fa-angle-left"></i></a>
+
+      <ul>
+        <li>
+          <a href="/controleEstoqueVenda/pedidos/carrinho.php"> <i class="fa fa-shopping-cart"></i> Carrinho</a>
+        </li>
+      </ul>
+    </li>
+    <?php } ?>
   </ul>
 </div>
 

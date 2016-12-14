@@ -20,7 +20,7 @@ if(isset($_POST['usuario'])){
           session_start();
           $_SESSION['user_id'] = $result ['id'];
           $_SESSION['role'] = "cliente";
-          header("Location: index.php");
+          header("Location: relatorio/index.php");
           exit();
         }
         //SENHA INCORRETA
@@ -31,7 +31,7 @@ if(isset($_POST['usuario'])){
       session_start();
       $_SESSION['user_id'] = $result ['id'];
       $_SESSION['role'] = "gerente";
-      header("Location: index.php");
+      header("Location: relatorio/index.php");
       exit();
     }
   }
